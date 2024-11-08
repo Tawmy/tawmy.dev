@@ -1,0 +1,6 @@
+﻿services:
+  web:
+    image: tawmy.dev
+    build:
+      context: .
+      dockerfile: tawmy.dev/Dockerfile

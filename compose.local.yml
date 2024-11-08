@@ -1,0 +1,4 @@
+services:
+  web:
+    labels:
+      - "dev.orbstack.domains=tawmy.local"
