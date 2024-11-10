@@ -6,8 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents();
 
-if (builder.Environment.IsDevelopment())
+if (builder.Environment.IsDevelopment() && builder.Configuration["DOTNET_RUNNING_IN_CONTAINER"] != "true")
 {
+    // if environment is dev and not running in container, add tailwind service for hot reload
     builder.Services.AddHostedService<TailwindService>();
 }
 
