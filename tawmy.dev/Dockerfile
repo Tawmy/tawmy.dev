@@ -5,6 +5,12 @@ EXPOSE 8080
 EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install nodejs npm -y
+RUN npm install -g pnpm
+
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["tawmy.dev/tawmy.dev.csproj", "tawmy.dev/"]

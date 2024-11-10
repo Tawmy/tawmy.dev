@@ -1,0 +1,11 @@
+services:
+  web:
+    networks:
+      - caddy
+    labels:
+      caddy: dev.tawmy.dev
+      caddy.reverse_proxy: "{{upstreams 8080}}"
+
+networks:
+  caddy:
+    external: true
