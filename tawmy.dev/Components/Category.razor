@@ -1,0 +1,10 @@
+<div class="relative flex flex-col gap-2 pt-2
+        before:absolute before:top-0 before:w-20 before:h-1 before:bg-black">
+    <h2 class="text-lg font-bold">@Header</h2>
+    <div>@ChildContent</div>
+</div>
+
+@code {
+    [Parameter] public required string Header { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}

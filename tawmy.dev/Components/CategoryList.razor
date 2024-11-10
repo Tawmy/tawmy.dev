@@ -1,0 +1,18 @@
+<Category Header="@Header">
+    <div class="flex flex-wrap gap-x-1">
+        @foreach (var (value, bold) in Entries)
+        {
+            <span class="whitespace-nowrap @(bold ? "font-bold" : string.Empty) [&:not(:last-child)]:after:content-[',']">
+                @value
+            </span>
+        }
+    </div>
+</Category>
+
+@code {
+    [Parameter] public required string Header { get; set; }
+    [Parameter] public IEnumerable<CategoryListEntry> Entries { get; set; } = [];
+
+    public readonly record struct CategoryListEntry(string Value, bool Bold = false);
+
+}
