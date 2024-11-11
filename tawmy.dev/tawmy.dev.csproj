@@ -18,6 +18,10 @@
         <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Tailwind.Extensions.AspNetCore" Version="1.0.0"/>
+    </ItemGroup>
+
     <Target Name="Tailwind" BeforeTargets="Build">
         <Exec Command="pnpm run css:build"/>
     </Target>

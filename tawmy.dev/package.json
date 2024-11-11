@@ -6,6 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "css:build": "npx tailwindcss -i ./Styles/source.css -o ./wwwroot/css/tailwind.css --minify",
+    "css:watch": "cross-env NODE_ENV=development ./node_modules/tailwindcss/lib/cli.js -i ./Styles/source.css -o ./wwwroot/css/tailwind.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
