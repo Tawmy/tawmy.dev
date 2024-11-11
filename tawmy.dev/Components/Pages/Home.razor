@@ -2,7 +2,7 @@
 
 <PageTitle>Tawmy</PageTitle>
 
-<div class="grid grid-cols-[10rem,_1fr] pt-10 pr-4 pb-10">
+<div class="grid grid-cols-[10rem,_1fr] gap-y-16 pt-10 pr-4 pb-10">
     <div class="flex flex-col items-end max-w-fit">
         <h1 class="relative text-9xl [writing-mode:vertical-lr] font-bold -scale-100
             before:absolute before:content-['software_developer'] before:top-24 before:right-2.5 before:text-2xl before:font-normal">
@@ -15,5 +15,19 @@
         <CategoryList Header="TECH STACK OF CHOICE" Entries="@_techStack"/>
         <CategoryList Header="I ALSO DO" Entries="_alsoDo"/>
         <CategoryList Header="IN MY FREE TIME" Entries="_freeTime"/>
+    </div>
+    <div class="grid gap-12 col-span-2 pl-4">
+        <Section Header="ACTIVE PROJECTS">
+            @foreach (var activeProject in _activeProjects)
+            {
+                <Project Entry="activeProject"/>
+            }
+        </Section>
+        <Section Header="PAST PROJECTS">
+            @foreach (var pastProject in _pastProjects)
+            {
+                <Project Entry="pastProject"/>
+            }
+        </Section>
     </div>
 </div>

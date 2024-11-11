@@ -1,0 +1,16 @@
+<div class="flex flex-wrap gap-x-1">
+    @foreach (var (value, bold) in Entries)
+    {
+        <span class="whitespace-nowrap @(bold ? "font-bold" : string.Empty) [&:not(:last-child)]:after:content-[',']">
+            @value
+        </span>
+    }
+</div>
+
+@code {
+
+    [Parameter] public IEnumerable<NoWrapElement> Entries { get; set; } = [];
+
+    public readonly record struct NoWrapElement(string Value, bool Bold = false);
+
+}

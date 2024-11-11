@@ -1,0 +1,27 @@
+@if (!string.IsNullOrEmpty(Entry.Url))
+{
+    <a href="@Entry.Url" class="relative flex flex-col gap-4
+        after:absolute after:content-['➚'] after:top-2 after:right-0 after:text-lg">
+        <Category Header="@Entry.Title">@Entry.Description</Category>
+        <div class="text-xs">
+            <NoWrapElements Entries="Entry.TechUsed"/>
+        </div>
+    </a>
+}
+else
+{
+    <div class="grid gap-4">
+        <Category Header="@Entry.Title">@Entry.Description</Category>
+        <div class="text-xs">
+            <NoWrapElements Entries="Entry.TechUsed"/>
+        </div>
+    </div>
+}
+
+@code {
+
+    [Parameter] public required ProjectEntry Entry { get; set; }
+
+    public readonly record struct ProjectEntry(string Title, string Description, IEnumerable<NoWrapElements.NoWrapElement> TechUsed, string? Url = null);
+
+}
