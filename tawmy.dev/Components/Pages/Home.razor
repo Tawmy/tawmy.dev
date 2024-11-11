@@ -2,7 +2,7 @@
 
 <PageTitle>Tawmy</PageTitle>
 
-<div class="grid grid-cols-[10rem,_1fr] gap-y-16 pt-10 pr-4 pb-10">
+<div class="grid grid-cols-[10rem,_auto] lg:grid-cols-[10rem,_auto,_1fr] gap-y-16 pt-10 pr-4 pb-10">
     <div class="flex flex-col items-end max-w-fit">
         <h1 class="relative text-9xl [writing-mode:vertical-lr] font-bold -scale-100
             before:absolute before:content-['software_developer'] before:top-24 before:right-2.5 before:text-2xl before:font-normal">
@@ -11,12 +11,12 @@
         <img src="dev.jpg" alt="Avatar"
              class="size-28 rounded-full border-8 border-black"/>
     </div>
-    <div class="flex flex-col gap-12">
+    <div class="flex flex-col gap-12 max-w-64">
         <CategoryList Header="TECH STACK OF CHOICE" Entries="@_techStack"/>
         <CategoryList Header="I ALSO DO" Entries="_alsoDo"/>
         <CategoryList Header="IN MY FREE TIME" Entries="_freeTime"/>
     </div>
-    <div class="grid gap-12 col-span-2 pl-4">
+    <div class="grid gap-12 col-span-2 lg:col-span-1 pl-4 lg:pl-20 xl:pl-32">
         <Section Header="ACTIVE PROJECTS">
             @foreach (var activeProject in _activeProjects)
             {
