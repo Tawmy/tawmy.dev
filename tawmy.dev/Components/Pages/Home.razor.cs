@@ -121,6 +121,14 @@ public partial class Home
             "https://zootopiadiscord.com")
     ];
 
+    private readonly IEnumerable<SocialLink.SocialLinkEntry> _socialLinks =
+    [
+        new("GitHub", "https://github.com/Tawmy", "GitHub-Mark-Light-120px-plus.png"),
+        new("Bluesky", "https://bsky.app/profile/tawmy.dev", "Bluesky_Logo_padded.svg"),
+        new("Infinite Backlog", "https://infinitebacklog.net/users/tawmy", "infinite-backlog_padded.svg"),
+        new("Blog", "https://tawmy.net", "chat_256dp_FFFFFF_FILL0_wght400_GRAD0_opsz48_padded.svg")
+    ];
+
     private readonly IEnumerable<NoWrapElements.NoWrapElement> _techStack =
     [
         new(".NET"),
