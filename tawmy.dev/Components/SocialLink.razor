@@ -1,7 +1,9 @@
-<a href="@Entry.Url" class="relative flex flex-col gap-4 items-center w-16 h-16 p-2 bg-black rounded-full text-center
-    after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-2 after:border-black after:rounded-full after:duration-700
-    hover:after:scale-125 hover:after:duration-200">
-    <img src="@Entry.IconUrl" alt="@Entry.Title Icon" class="w-full grayscale brightness-[100]"/>
+<a href="@Entry.Url" class="flex flex-col gap-4 w-16 items-center text-center">
+    <div class="relative w-full h-16 p-2 bg-black rounded-full
+        after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-2 after:border-black after:rounded-full after:duration-700
+        hover:after:scale-125 hover:after:duration-200">
+        <img src="@Entry.IconUrl" alt="@Entry.Title Icon" class="w-full grayscale brightness-[100]"/>
+    </div>
     <div>@Entry.Title</div>
 </a>
 
