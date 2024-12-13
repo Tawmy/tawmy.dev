@@ -13,8 +13,13 @@
             after:absolute after:content-['Tawmy'] after:-z-10 after:-left-1 after:-bottom-1 after:text-red-500 after:[-webkit-text-stroke:_2px_black]">
             Tawmy
         </h1>
-        <img src="dev.jpg" alt="Avatar"
-             class="size-28 rounded-full border-8 border-black"/>
+        <div class="relative size-28
+            before:absolute before:-bottom-3 before:-left-3 before:h-14 before:w-full before:border-b-8 before:border-l-8 before:border-red-500
+            after:absolute after:-bottom-2 after:-left-2 after:h-14 after:w-full after:border-b-8 after:border-l-8 after:border-black
+            ">
+            <img src="avatar.webp" alt="Avatar" class="size-full"/>
+        </div>
+
     </div>
     <div class="flex flex-col gap-12 max-w-64">
         @foreach (var section in DataService.GetIntroductions())
