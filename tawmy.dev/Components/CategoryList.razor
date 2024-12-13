@@ -1,8 +1,9 @@
+@using tawmy.dev.Data
 <Category Header="@Header">
     <NoWrapElements Entries="Entries"/>
 </Category>
 
 @code {
     [Parameter] public required string Header { get; set; }
-    [Parameter] public IEnumerable<NoWrapElements.NoWrapElement> Entries { get; set; } = [];
+    [Parameter] public IEnumerable<NoWrapElement> Entries { get; set; } = [];
 }

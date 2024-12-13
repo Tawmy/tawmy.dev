@@ -2,15 +2,13 @@
     <div class="relative w-full h-16 p-2 bg-black rounded-full
         after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-2 after:border-black after:rounded-full after:duration-700
         hover:after:scale-125 hover:after:duration-200">
-        <img src="@Entry.IconUrl" alt="@Entry.Title Icon" class="w-full grayscale brightness-[100]"/>
+        <img src="@Entry.Icon" alt="@Entry.Title Icon" class="w-full grayscale brightness-[100]"/>
     </div>
     <div>@Entry.Title</div>
 </a>
 
 @code {
 
-    [Parameter] public required SocialLinkEntry Entry { get; set; }
-
-    public readonly record struct SocialLinkEntry(string Title, string Url, string IconUrl);
+    [Parameter] public required Data.SocialLink Entry { get; set; }
 
 }

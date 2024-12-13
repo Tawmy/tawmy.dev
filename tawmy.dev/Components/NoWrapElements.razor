@@ -1,3 +1,4 @@
+@using tawmy.dev.Data
 <div class="flex flex-wrap gap-x-1">
     @foreach (var (value, bold) in Entries)
     {
@@ -11,6 +12,5 @@
 
     [Parameter] public IEnumerable<NoWrapElement> Entries { get; set; } = [];
 
-    public readonly record struct NoWrapElement(string Value, bool Bold = false);
 
 }

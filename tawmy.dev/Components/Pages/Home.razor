@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using tawmy.dev.Services
+@inject DataService DataService
 
 <PageTitle>Tawmy</PageTitle>
 
@@ -15,30 +17,31 @@
              class="size-28 rounded-full border-8 border-black"/>
     </div>
     <div class="flex flex-col gap-12 max-w-64">
-        <CategoryList Header="MY TECH STACK" Entries="@_techStack"/>
-        <CategoryList Header="I ALSO DO" Entries="_alsoDo"/>
-        <CategoryList Header="IN MY FREE TIME" Entries="_freeTime"/>
+        @foreach (var section in DataService.GetIntroductions())
+        {
+            <CategoryList Header="@(section.Title.ToUpperInvariant())" Entries="@(section.Entries)"/>
+        }
     </div>
     <div class="grid gap-12 col-span-2 pl-4
         md:col-span-1
         lg:pl-20
         xl:pl-32">
-        <Section Header="ACTIVE PROJECTS">
-            @foreach (var activeProject in _activeProjects)
-            {
-                <Project Entry="activeProject"/>
-            }
-        </Section>
-        <Section Header="PAST PROJECTS">
-            @foreach (var pastProject in _pastProjects)
-            {
-                <Project Entry="pastProject"/>
-            }
-        </Section>
+        @foreach (var projectCategory in DataService.GetProjects())
+        {
+            <Section Header="@(projectCategory.Title.ToUpperInvariant())">
+
+                @foreach (var project in projectCategory.Entries)
+                {
+                    <div class="pb-4">
+                        <Project Entry="project"></Project>
+                    </div>
+                }
+            </Section>
+        }
         <div class="flex justify-center [&>*]:flex-shrink-0 [&_div]:gap-4 [&_*]:overflow-visible
             md:justify-normal md:[&_div]:gap-6">
             <Section Header="LET'S CONNECT!">
-                @foreach (var socialLink in _socialLinks)
+                @foreach (var socialLink in DataService.GetSocials())
                 {
                     <SocialLink Entry="socialLink"/>
                 }

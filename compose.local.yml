@@ -2,3 +2,5 @@ services:
   web:
     labels:
       - "dev.orbstack.domains=tawmy.local"
+    volumes:
+      - /Users/tawmy/Git/Tawmy/tawmy.dev/tawmy.dev/wwwroot/data:/mnt/data
