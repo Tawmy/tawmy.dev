@@ -17,6 +17,7 @@ COPY ["tawmy.dev/tawmy.dev.csproj", "tawmy.dev/"]
 RUN dotnet restore "tawmy.dev/tawmy.dev.csproj"
 COPY . .
 WORKDIR "/src/tawmy.dev"
+RUN pnpm install
 RUN dotnet build "tawmy.dev.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
