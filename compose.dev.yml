@@ -1,7 +1,7 @@
 services:
   web:
     networks:
-      - caddy
+      - reverse-proxy
     labels:
       caddy: dev.tawmy.dev
       caddy.reverse_proxy: "{{upstreams 8080}}"
@@ -9,5 +9,5 @@ services:
       - /root/tawmy.dev/data:/mnt/data
 
 networks:
-  caddy:
+  reverse-proxy:
     external: true
