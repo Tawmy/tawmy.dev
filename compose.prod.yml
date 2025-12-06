@@ -3,7 +3,7 @@ services:
     networks:
       - reverse-proxy
     labels:
-      caddy: dev.tawmy.dev
+      caddy: tawmy.dev
       caddy.reverse_proxy: "{{upstreams 8080}}"
     volumes:
       - /root/tawmy.dev/data:/mnt/data

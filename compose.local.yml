@@ -1,5 +1,9 @@
 services:
   web:
+    image: tawmy.dev
+    build:
+      context: .
+      dockerfile: tawmy.dev/Dockerfile
     labels:
       - "dev.orbstack.domains=tawmy.local"
     volumes:
