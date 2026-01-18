@@ -25,4 +25,7 @@ app.MapRazorComponents<App>();
 
 await app.Services.GetRequiredService<DataService>().LoadDataAsync();
 
+var version = typeof(Program).Assembly.GetName().Version!;
+app.Logger.LogInformation("tawmy.dev, version {version}", version.ToString(3));
+
 app.Run();
