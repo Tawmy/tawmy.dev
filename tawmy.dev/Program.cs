@@ -8,14 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<DataService>();
 builder.Services.AddRazorComponents();
 
+builder.UseTailwindCli();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    _ = app.RunTailwind("css:watch");
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", true);
 }
@@ -26,5 +24,8 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>();
 
 await app.Services.GetRequiredService<DataService>().LoadDataAsync();
+
+var version = typeof(Program).Assembly.GetName().Version!;
+app.Logger.LogInformation("tawmy.dev, version {version}", version.ToString(3));
 
 app.Run();

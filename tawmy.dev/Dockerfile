@@ -1,15 +1,18 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+ARG TARGETARCH
 
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt install nodejs npm -y
-RUN npm install -g pnpm
+RUN case "${TARGETARCH}" in \
+        "arm64")  TW_ARCH="arm64" ;; \
+        *)        TW_ARCH="x64" ;; \
+    esac && \
+    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.1.18/tailwindcss-linux-${TW_ARCH} && \
+    chmod +x tailwindcss-linux-${TW_ARCH} && \
+    mv tailwindcss-linux-${TW_ARCH} /usr/local/bin/tailwindcss
 
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src

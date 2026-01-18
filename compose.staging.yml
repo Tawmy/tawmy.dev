@@ -1,10 +1,9 @@
 services:
   web:
-    image: ghcr.io/tawmy/tawmy.dev:main
     networks:
       - reverse-proxy
     labels:
-      caddy: dev.tawmy.dev
+      caddy: staging.tawmy.dev
       caddy.reverse_proxy: "{{upstreams 8080}}"
     volumes:
       - /root/tawmy.dev/data:/mnt/data

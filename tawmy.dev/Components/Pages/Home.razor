@@ -4,9 +4,9 @@
 
 <PageTitle>Tawmy</PageTitle>
 
-<div class="grid grid-cols-[10rem,_auto] gap-y-16 pt-10 pr-4 pb-10
-        md:grid-cols-[10rem,_12rem,_1fr]
-        lg:grid-cols-[10rem,_auto,_1fr]">
+<div class="grid grid-cols-[10rem_auto] gap-y-16 pt-10 pr-4 pb-10
+        md:grid-cols-[10rem_12rem_1fr]
+        lg:grid-cols-[10rem_auto_1fr]">
     <div class="flex flex-col items-end max-w-fit">
         <h1 class="relative text-9xl [writing-mode:vertical-lr] font-bold -scale-100
             before:absolute before:content-['software_developer'] before:top-24 before:right-2.5 before:text-2xl before:font-normal
@@ -43,7 +43,7 @@
                 }
             </Section>
         }
-        <div class="flex justify-center [&>*]:flex-shrink-0 [&_div]:gap-4 [&_*]:overflow-visible
+        <div class="flex justify-center [&>*]:shrink-0 [&_div]:gap-4 [&_*]:overflow-visible
             md:justify-normal md:[&_div]:gap-6">
             <Section Header="LET'S CONNECT!">
                 @foreach (var socialLink in DataService.GetSocials())

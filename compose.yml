@@ -1,6 +1,6 @@
 ﻿services:
   web:
-    image: tawmy.dev
-    build:
-      context: .
-      dockerfile: tawmy.dev/Dockerfile
+    image: ghcr.io/tawmy/tawmy.dev:1.1.0
+    restart: unless-stopped
+    container_name: tawmy.dev
+    

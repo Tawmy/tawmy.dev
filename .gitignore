@@ -6,3 +6,4 @@ riderModule.iml
 node_modules
 .DS_Store
 tawmy.dev/wwwroot/css/tailwind.css
+.idea
