@@ -15,15 +15,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Tailwind.Extensions.AspNetCore" Version="1.1.2"/>
     </ItemGroup>
 
-    <Target Name="Tailwind" BeforeTargets="Build">
-        <Exec Command="pnpm run css:build"/>
+    <Target Name="TailwindBuild" BeforeTargets="Build">
+        <Exec Command="tailwindcss -i Styles/source.css -o wwwroot/css/tailwind.css"/>
+    </Target>
+
+    <Target Name="TailwindPublish" BeforeTargets="Publish">
+        <Exec Command="tailwindcss -i Styles/source.css -o wwwroot/css/tailwind.css --minify"/>
     </Target>
 
 </Project>

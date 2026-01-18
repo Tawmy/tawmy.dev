@@ -8,14 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<DataService>();
 builder.Services.AddRazorComponents();
 
+builder.UseTailwindCli();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    _ = app.RunTailwind("css:watch");
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", true);
 }
