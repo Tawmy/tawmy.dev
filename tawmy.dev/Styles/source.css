@@ -3,5 +3,12 @@
 @layer base {
     html {
         font-family: system-ui, sans-serif;
+        background: rgb(25, 26, 28);
+        color: rgb(229, 231, 235);
+
+        @media (prefers-color-scheme: light) {
+            background: white;
+            color: black;
+        }
     }
 }
